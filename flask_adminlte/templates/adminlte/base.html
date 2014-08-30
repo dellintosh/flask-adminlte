@@ -1,0 +1,71 @@
+{% block doc -%}
+<!DOCTYPE html>
+<html{% block html_attribs %}{% endblock html_attribs %}>
+{%- block html %}
+  <head>
+    {%- block head %}
+    <title>{% block title %}{% endblock title %}</title>
+    {%- block metas %}
+    <meta charset="UTF-8">
+    <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
+    {%- endblock metas %}
+    {%- block styles %}
+    <!-- bootstrap 3.0.2 -->
+    <link href="{{ adminlte_find_resource('css/bootstrap.css', cdn='local') }}" rel="stylesheet" type="text/css" />
+    <!-- font Awesome -->
+    <link href="{{ adminlte_find_resource('css/font-awesome.css', cdn='local') }}" rel="stylesheet" type="text/css" />
+    <!-- Ionicons -->
+    <link href="{{ adminlte_find_resource('css/ionicons.css', cdn='local') }}" rel="stylesheet" type="text/css" />
+    <!-- Theme style -->
+    <link href="{{ adminlte_find_resource('css/AdminLTE.css', cdn='local', use_minified=False) }}" rel="stylesheet" type="text/css" />
+    {%- endblock styles %}
+    {%- endblock head %}
+  </head>
+  <body{% block body_attribs %} class="skin-blue"{% endblock body_attribs %}>
+    {% block body -%}
+    <header class="header">
+    <a href="../../index.html" class="logo">
+        <!-- Add the class icon to your logo image or logo icon to add the margining -->
+        AdminLTE
+    </a>
+    <!-- Header Navbar: style can be found in header.less -->
+    <nav class="navbar navbar-static-top" role="navigation">
+    {% block navbar %}
+    {%- endblock navbar %}
+    </nav>
+    </header>
+    <div class="wrapper row-offcanvas row-offcanvas-left">
+      <!-- Left side column. contains the logo and sidebar -->
+      <aside class="left-side sidebar-offcanvas">
+      {% block sidebar -%}
+      {%- endblock sidebar %}
+      </aside>
+      <!-- Right side column. Contains the navbar and content of the page -->
+      <aside class="right-side">
+        <!-- Content Header (Page header) -->
+        <section class="content-header">
+        {% block content_header -%}
+        {%- endblock content_header %}
+        </section>
+
+        <!-- Main content -->
+        <section class="content">
+        {% block content -%}
+        {%- endblock content %}
+        </section><!-- /.content -->
+      </aside><!-- /.right-side -->
+    </div>
+
+    {% block scripts %}
+    <!-- jQuery 2.0.2 -->
+    <script src="{{ adminlte_find_resource('jquery.js', cdn='jquery') }}"></script>
+    <!-- Bootstrap -->
+    <script src="{{ adminlte_find_resource('js/bootstrap.js', cdn='local') }}"></script>
+    <!-- AdminLTE App -->
+    <script src="{{ adminlte_find_resource('js/AdminLTE/app.js', cdn='local', use_minified=False) }}"></script>
+    {%- endblock scripts %}
+    {%- endblock body %}
+    </body>
+{%- endblock html %}
+</html>
+{% endblock doc -%}

@@ -1,0 +1,6 @@
+{% macro ie8() %}
+<!--[if lt IE 9]>
+      <script src="{{ adminlte_find_resource('html5shiv.js', cdn='local', local=False) }}"></script>
+      <script src="{{ adminlte_find_resource('respond.js', cdn='local', local=False) }}"></script>
+<![endif]-->
+{% endmacro %}
