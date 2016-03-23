@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # coding=utf8
 
-__version__ = '2.0'
+__version__ = '2.3.0'
 
 import re
 
@@ -105,7 +105,7 @@ class AdminLTE(object):
 
     def init_app(self, app):
         ADMINLTE_VERSION = re.sub(r'^(\d+\.\d+\.\d+).*', r'\1', __version__)
-        JQUERY_VERSION = '2.0.2'
+        JQUERY_VERSION = '2.1.4'
         HTML5SHIV_VERSION = '3.7.0'
         RESPONDJS_VERSION = '1.3.0'
 
