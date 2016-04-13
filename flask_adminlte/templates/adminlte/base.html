@@ -1,7 +1,5 @@
-{% block doc -%}
 <!DOCTYPE html>
-<html{% block html_attribs %}{% endblock html_attribs %}>
-{%- block html %}
+<html>
   <head>
     {%- block head %}
     <title>{% block title %}{% endblock title %}</title>
@@ -12,65 +10,129 @@
     {%- block styles %}
     <!-- bootstrap 3.0.2 -->
     <link href="{{ adminlte_find_resource('css/bootstrap.css', cdn='local') }}" rel="stylesheet" type="text/css" />
+    <!-- Toastr Notifications -->
+    <link href="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css" rel="stylesheet" />
     <!-- font Awesome -->
     <link href="{{ adminlte_find_resource('css/font-awesome.css', cdn='local') }}" rel="stylesheet" type="text/css" />
     <!-- Ionicons -->
     <link href="{{ adminlte_find_resource('css/ionicons.css', cdn='local') }}" rel="stylesheet" type="text/css" />
+    <!-- jvectormap -->
+    <link href="{{ adminlte_find_resource('plugins/jvectormap/jquery-jvectormap-1.2.2.css', cdn='local', use_minified=False) }}" rel="stylesheet" type="text/css">
     <!-- Theme style -->
     <link href="{{ adminlte_find_resource('css/AdminLTE.css', cdn='local', use_minified=False) }}" rel="stylesheet" type="text/css" />
     <!-- Skin  -->
     <link href="{{ adminlte_find_resource('css/skins/skin-blue.min.css', cdn='local', use_minified=False) }}" rel="stylesheet" type="text/css" />
+    <!-- Pace -->
+    <link href="{{ adminlte_find_resource('plugins/pace/pace.css', cdn='local') }}" rel="stylesheet" type="text/css">
+
     {%- endblock styles %}
     {%- endblock head %}
   </head>
-  <body{% block body_attribs %} class="skin-blue" {% endblock body_attribs %}>
-    {% block body -%}
-    <header class="main-header">
-      <a href="../../index.html" class="logo">
-          <!-- Add the class icon to your logo image or logo icon to add the margining -->
-          AdminLTE
-      </a>
-      <!-- Header Navbar: style can be found in header.less -->
-      <nav class="navbar navbar-static-top" role="navigation">
-      {% block navbar %}
-      {%- endblock navbar %}
-      </nav>
-    </header>
-    <div class="wrapper row-offcanvas row-offcanvas-left">
-      <!-- Left side column. contains the logo and sidebar -->
-      <aside class="main-sidebar">
-      <section class="sidebar">
-      {% block sidebar -%}
-      {%- endblock sidebar %}
-      </section>
-        </aside>
-      <!-- Right side column. Contains the navbar and content of the page -->
-      <div class="content-wrapper">
-        <!-- Content Header (Page header) -->
-        <section class="content-header">
-        {% block content_header -%}
-        {%- endblock content_header %}
-        </section>
 
-        <!-- Main content -->
-        <section class="content">
-        {% block content -%}
-        {%- endblock content %}
-        </section><!-- /.content -->
-      </div><!-- /.content-wrapper -->
-      
-    </div>
+    <body class="{% block skin %}skin-blue{% endblock %} sidebar-mini">
+
+  <noscript>
+    {% with messages = get_flashed_messages(with_categories=true) %}
+      {% if messages %}
+      <div class="row">
+        <div class="container">
+            <div class="col-1-1">
+            {% for category, message in messages %}
+              <div class="alert-box {{ category }} banner">
+               {{ message|safe }}
+              </div>
+            {% endfor %}
+           </div>
+        </div>
+      </div>
+      {% endif %}
+    {% endwith %}
+  </noscript>
+
+
+        {% block page_body %}
+            <div class="wrapper">
+                <header class="main-header">
+                    {% block brand %}
+                      <a href="#" class="logo">
+                          <span class="logo-mini"><strong>ECG</strong></span>
+                          <span class="logo-lg"><strong>ECG</strong>{{ admin_view.admin.name }}</span>
+                      </a>
+                    {% endblock %}
+
+                    <!-- Header Navbar: style can be found in header.less -->
+                    <nav class="navbar navbar-static-top" role="navigation">
+                      {% block navbar %}
+                      {%- endblock navbar %}
+                    </nav>
+
+                </header>
+
+                <aside class="main-sidebar">
+                    <section class="sidebar">
+                      {% block sidebar -%}
+                      {%- endblock sidebar %}
+                    </section>
+                </aside>
+
+                <div class="content-wrapper">
+
+                  <!-- Content Header (Page header) -->
+                  <section class="content-header">
+                  {% block content_header -%}
+                  {%- endblock content_header %}
+                  </section>
+
+                  <!-- Main content -->
+                  <section class="content">
+                  {% block content -%}
+                  {%- endblock content %}
+                  </section><!-- /.content -->
+                </div>
+                <footer class="main-footer">
+                    <div class="pull-right hidden-xs">
+                        {% block version %}
+                        <b>Version</b> 2.0.1
+                        {% endblock %}
+                    </div>
+                    {% block copyright %}<strong>Copyright © 2016</strong> All rights reserved.{% endblock %}
+                </footer>
+            </div>
+        {% endblock %}
+
+        {% block tail %}{% endblock %}
 
     {% block scripts %}
-    <!-- jQuery 2.0.2 -->
-    <script src="{{ adminlte_find_resource('jquery.js', cdn='jquery') }}"></script>
-    <!-- Bootstrap -->
-    <script src="{{ adminlte_find_resource('js/bootstrap.js', cdn='local') }}"></script>
-    <!-- AdminLTE App -->
-    <script src="{{ adminlte_find_resource('js/AdminLTE/app.js', cdn='local', use_minified=False) }}"></script>
+      <!-- jQuery -->
+      <script src="{{ adminlte_find_resource('jquery.js', cdn='jquery') }}"></script>
+      <!-- jQuery UI 1.11.4 -->
+      <script src="https://code.jquery.com/ui/1.11.4/jquery-ui.min.js"></script>
+      <!-- Bootstrap -->
+      <script src="{{ adminlte_find_resource('js/bootstrap.js', cdn='local') }}"></script>
+      <!-- Toastr Notifications -->
+      <script src="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
+      <!-- PACE -->
+      <script src="{{ adminlte_find_resource('js/plugins/pace/pace.js', cdn='local', use_minified=False) }}"></script>
+      <!-- Slimscroll -->
+      <script src="{{ adminlte_find_resource('js/plugins/slimScroll/jquery.slimscroll.js', cdn='local')}}"></script>
+      <!-- Fastclick -->
+      <script src="{{ adminlte_find_resource('js/plugins/fastclick/fastclick.js', cdn='local')}}"></script>
+      <!-- AdminLTE App -->
+      <script src="{{ adminlte_find_resource('js/AdminLTE/app.js', cdn='local', use_minified=False) }}"></script>
+      <!-- Sparkline -->
+      <script src="{{ adminlte_find_resource('js/plugins/sparkline/jquery.sparkline.js', cdn='local') }}"></script>
+      <!-- jvectormap -->
+      <script src="{{ adminlte_find_resource('js/plugins/jvectormap/jquery-jvectormap-1.2.2.js', cdn='local') }}"></script>
+      <script src="{{ adminlte_find_resource('js/plugins/jvectormap/jquery-jvectormap-world-mill-en.js', cdn='local', use_minified=False) }}"></script>
+      <!-- ChartJS 1.0.1 -->
+      <script src="{{ adminlte_find_resource('js/plugins/chartjs/Chart.js', cdn='local') }}"></script>
+      <script>
+        /* turning flask flash messages into js popup notifications */
+        window.popupMessages = {{ get_flashed_messages(with_categories=True) | tojson | safe }};
+      </script>
+      <!-- Local application JS -->
+      <script src="{{ adminlte_find_resource('js/app.js', cdn='local', use_minified=False) }}"></script>
     {%- endblock scripts %}
-    {%- endblock body %}
+
     </body>
-{%- endblock html %}
 </html>
-{% endblock doc -%}
