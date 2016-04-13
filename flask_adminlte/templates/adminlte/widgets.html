@@ -1,0 +1,20 @@
+{% macro small_box(bgcolor="bg-yellow", header="44", body="User Registrations", iconclass="ion ion-person-add", footerlink="#") %}
+
+    <div class="col-lg-3 col-xs-6">
+      <!-- small box -->
+      <div class="small-box {{bgcolor}}">
+        <div class="inner">
+          <h3>{{header}}</h3>
+
+          <p>{{body}}</p>
+        </div>
+        <div class="icon">
+          <i class="{{iconclass}}"></i>
+        </div>
+        <a href="{{footerlink}}" class="small-box-footer">
+          More info <i class="fa fa-arrow-circle-right"></i>
+        </a>
+      </div>
+    </div>
+
+{% endmacro %}
