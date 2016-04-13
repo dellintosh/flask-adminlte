@@ -10,6 +10,14 @@ def create_app(configfile=None):
     def index():
         return render_template('index.html')
 
+    @app.route('/login')
+    def login():
+        return render_template('login.html')
+
+    @app.route('/lockscreen')
+    def lockscreen():
+        return render_template('lockscreen.html')
+
     return app
 
 if __name__ == '__main__':

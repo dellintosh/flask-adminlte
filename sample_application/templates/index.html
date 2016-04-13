@@ -25,7 +25,7 @@
                     <li><!-- start message -->
                       <a href="#">
                         <div class="pull-left">
-                          <img src="../../img/avatar3.png" class="img-circle" alt="User Image"/>
+                          <img src="{{ url_for('static', filename='img/avatar3.png') }}" class="img-circle" alt="User Image"/>
                         </div>
                         <h4>
                           Support Team
@@ -37,7 +37,7 @@
                     <li>
                       <a href="#">
                         <div class="pull-left">
-                          <img src="../../img/avatar2.png" class="img-circle" alt="user image"/>
+                          <img src="{{ url_for('static', filename='img/avatar2.png') }}" class="img-circle" alt="user image"/>
                         </div>
                         <h4>
                           AdminLTE Design Team
@@ -49,7 +49,7 @@
                     <li>
                       <a href="#">
                         <div class="pull-left">
-                          <img src="../../img/avatar.png" class="img-circle" alt="user image"/>
+                          <img src="{{ url_for('static', filename='img/avatar.png') }}" class="img-circle" alt="user image"/>
                         </div>
                         <h4>
                           Developers
@@ -61,7 +61,7 @@
                     <li>
                       <a href="#">
                         <div class="pull-left">
-                          <img src="../../img/avatar2.png" class="img-circle" alt="user image"/>
+                          <img src="{{ url_for('static', filename='img/avatar2.png') }}" class="img-circle" alt="user image"/>
                         </div>
                         <h4>
                           Sales Department
@@ -73,7 +73,7 @@
                     <li>
                       <a href="#">
                         <div class="pull-left">
-                          <img src="../../img/avatar.png" class="img-circle" alt="user image"/>
+                          <img src="{{ url_for('static', filename='img/avatar.png') }}" class="img-circle" alt="user image"/>
                         </div>
                         <h4>
                           Reviewers
@@ -208,7 +208,7 @@
               <ul class="dropdown-menu">
                 <!-- User image -->
                 <li class="user-header bg-light-blue">
-                  <img src="../../img/avatar3.png" class="img-circle" alt="User Image" />
+                  <img src="{{ url_for('static', filename='img/avatar3.png') }}" class="img-circle" alt="User Image" />
                   <p>
                     Jane Doe - Web Developer
                     <small>Member since Nov. 2012</small>
@@ -232,7 +232,7 @@
                     <a href="#" class="btn btn-default btn-flat">Profile</a>
                   </div>
                   <div class="pull-right">
-                    <a href="#" class="btn btn-default btn-flat">Sign out</a>
+                    <a href="{{ url_for('login') }}" class="btn btn-default btn-flat">Sign out</a>
                   </div>
                 </li>
               </ul>
@@ -250,6 +250,29 @@
                 <i class="fa fa-dashboard"></i> <span>Dashboard</span>
               </a>
             </li>
+
+            <li class="treeview">
+              <a href="#">
+                <i class="fa fa-folder"></i>
+                <span>Examples</span>
+                <i class="fa fa-angle-left pull-right"></i>
+              </a>
+              <ul class="treeview-menu">
+                <li>
+                  <a href="{{ url_for('login') }}">
+                    <i class="fa fa-circle-o"></i>
+                    Login
+                  </a>
+                </li>
+                <li>
+                  <a href="{{ url_for('lockscreen') }}">
+                    <i class="fa fa-circle-o"></i>
+                    Lockscreen
+                  </a>
+                </li>
+              </ul>
+            </li>
+
           </ul>
         <!-- /.sidebar -->
 {%- endblock sidebar %}
