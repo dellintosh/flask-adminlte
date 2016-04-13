@@ -1,15 +1,15 @@
 {% extends "adminlte/base.html" %}
-{% import "adminlte/fixes.html" as fixes %}
+{% import "adminlte/layout.html" as layout with context %}
 
 {% block navbar %}
         <!-- Sidebar toggle button-->
-        <a href="#" class="navbar-btn sidebar-toggle" data-toggle="offcanvas" role="button">
+        <a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button">
           <span class="sr-only">Toggle navigation</span>
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </a>
-        <div class="navbar-right">
+        <div class="navbar-custom-menu">
           <ul class="nav navbar-nav">
             <!-- Messages: style can be found in dropdown.less-->
             <li class="dropdown messages-menu">
@@ -242,16 +242,15 @@
 {%- endblock navbar %}
 {% block sidebar -%}
         <!-- sidebar: style can be found in sidebar.less -->
-          <!-- sidebar menu: : style can be found in sidebar.less -->
+        <!-- sidebar menu: : style can be found in sidebar.less -->
           <ul class="sidebar-menu">
-          <li class="Header">HEADER</li>
+          <li class="header">HEADER</li>
             <li class="active">
               <a href="{{ url_for('index') }}">
                 <i class="fa fa-dashboard"></i> <span>Dashboard</span>
               </a>
             </li>
           </ul>
-        </section>
         <!-- /.sidebar -->
 {%- endblock sidebar %}
 {% block content_header -%}
