@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # coding=utf8
 
-__version__ = '2.3.0'
+__version__ = '2.3.3'
 
 import re
 
