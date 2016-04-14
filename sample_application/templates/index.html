@@ -26,7 +26,7 @@
                     <li><!-- start message -->
                       <a href="#">
                         <div class="pull-left">
-                          <img src="{{ url_for('static', filename='img/avatar3.png') }}" class="img-circle" alt="User Image"/>
+                          <img src="{{ current_user.avatar }}" class="img-circle" alt="User Image"/>
                         </div>
                         <h4>
                           Support Team
@@ -204,15 +204,15 @@
             <li class="dropdown user user-menu">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                 <i class="glyphicon glyphicon-user"></i>
-                <span>Jane Doe <i class="caret"></i></span>
+                <span>{{ current_user.full_name }} <i class="caret"></i></span>
               </a>
               <ul class="dropdown-menu">
                 <!-- User image -->
                 <li class="user-header bg-light-blue">
-                  <img src="{{ url_for('static', filename='img/avatar3.png') }}" class="img-circle" alt="User Image" />
+                  <img src="{{ current_user.avatar }}" class="img-circle" alt="User Image" />
                   <p>
-                    Jane Doe - Web Developer
-                    <small>Member since Nov. 2012</small>
+                    {{ current_user.full_name }} - Web Developer
+                    <small>Member since {{ current_user.created_at.strftime("%b. %Y") }}</small>
                   </p>
                 </li>
                 <!-- Menu Body -->
@@ -244,6 +244,18 @@
 {% block sidebar -%}
         <!-- sidebar: style can be found in sidebar.less -->
         <!-- sidebar menu: : style can be found in sidebar.less -->
+          <div class="user-panel">
+            <div class="pull-left image">
+              <img src="{{ current_user.avatar }}" alt="User Image" class="img-circle">
+            </div>
+            <div class="pull-left info">
+              <p>{{ current_user.full_name }}</p>
+              <a href="#">
+                <i class="fa fa-circle text-success"></i>
+                Online
+              </a>
+            </div>
+          </div>
           <ul class="sidebar-menu">
           <li class="header">HEADER</li>
             <li class="active">

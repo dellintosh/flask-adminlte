@@ -12,13 +12,13 @@
     <a href="../../index2.html"><b>Admin</b>LTE</a>
   </div>
   <!-- User name -->
-  <div class="lockscreen-name">John Doe</div>
+  <div class="lockscreen-name">{{ current_user.full_name }}</div>
 
   <!-- START LOCK SCREEN ITEM -->
   <div class="lockscreen-item">
     <!-- lockscreen image -->
     <div class="lockscreen-image">
-      <img src="{{ url_for('static', filename='user1-128x128.jpg')}}" alt="User Image">
+      <img src="{{ current_user.avatar }}" alt="User Image">
     </div>
     <!-- /.lockscreen-image -->
 
