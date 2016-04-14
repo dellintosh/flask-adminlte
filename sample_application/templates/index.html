@@ -1,5 +1,6 @@
 {% extends "adminlte/base.html" %}
 {% import "adminlte/layout.html" as layout with context %}
+{% import "adminlte/widgets.html" as widgets with context %}
 
 {% block navbar %}
         <!-- Sidebar toggle button-->
@@ -289,165 +290,96 @@
 {% block content -%}
           <h4 class="page-header">
             AdminLTE Small Boxes
-            <small>Small boxes are used for viewing statistics. To create a small box use the class <code>.small-box</code> and mix & match using the <code>bg-*</code> classes.</small>
+            <small>Small boxes are used for viewing statistics. To create a small box use the <code>widgets.small_box</code> widget.</small>
           </h4>
           <!-- Small boxes (Stat box) -->
           <div class="row">
-            <div class="col-lg-3 col-xs-6">
-              <!-- small box -->
-              <div class="small-box bg-aqua">
-                <div class="inner">
-                  <h3>
-                    150
-                  </h3>
-                  <p>
-                    New Orders
-                  </p>
-                </div>
-                <div class="icon">
-                  <i class="ion ion-bag"></i>
-                </div>
-                <a href="#" class="small-box-footer">
-                  More info <i class="fa fa-arrow-circle-right"></i>
-                </a>
-              </div>
-            </div><!-- ./col -->
-            <div class="col-lg-3 col-xs-6">
-              <!-- small box -->
-              <div class="small-box bg-green">
-                <div class="inner">
-                  <h3>
-                    53<sup style="font-size: 20px">%</sup>
-                  </h3>
-                  <p>
-                    Bounce Rate
-                  </p>
-                </div>
-                <div class="icon">
-                  <i class="ion ion-stats-bars"></i>
-                </div>
-                <a href="#" class="small-box-footer">
-                  More info <i class="fa fa-arrow-circle-right"></i>
-                </a>
-              </div>
-            </div><!-- ./col -->
-            <div class="col-lg-3 col-xs-6">
-              <!-- small box -->
-              <div class="small-box bg-yellow">
-                <div class="inner">
-                  <h3>
-                    44
-                  </h3>
-                  <p>
-                    User Registrations
-                  </p>
-                </div>
-                <div class="icon">
-                  <i class="ion ion-person-add"></i>
-                </div>
-                <a href="#" class="small-box-footer">
-                  More info <i class="fa fa-arrow-circle-right"></i>
-                </a>
-              </div>
-            </div><!-- ./col -->
-            <div class="col-lg-3 col-xs-6">
-              <!-- small box -->
-              <div class="small-box bg-red">
-                <div class="inner">
-                  <h3>
-                    65
-                  </h3>
-                  <p>
-                    Unique Visitors
-                  </p>
-                </div>
-                <div class="icon">
-                  <i class="ion ion-pie-graph"></i>
-                </div>
-                <a href="#" class="small-box-footer">
-                  More info <i class="fa fa-arrow-circle-right"></i>
-                </a>
-              </div>
-            </div><!-- ./col -->
+
+            {{
+              widgets.small_box(
+                bgcolor="bg-aqua",
+                header=150,
+                body="New Orders",
+                iconclass="ion ion-bag",
+                footerlink="#"
+              )
+            }}
+
+            {{
+              widgets.small_box(
+                bgcolor="bg-green",
+                header=53,
+                body="Bounce Rate",
+                iconclass="ion ion-stats-bars",
+                footerlink="#"
+              )
+            }}
+
+            {{
+              widgets.small_box(
+                bgcolor="bg-yellow",
+                header=43,
+                body="User Registrations",
+                iconclass="ion ion-person-add",
+                footerlink="#"
+              )
+            }}
+
+            {{
+              widgets.small_box(
+                bgcolor="bg-red",
+                header=65,
+                body="Unique Visitors",
+                iconclass="ion ion-pie-graph",
+                footerlink="#"
+              )
+            }}
+
           </div><!-- /.row -->
 
           <!-- Small boxes (Stat box) -->
           <div class="row">
-            <div class="col-lg-3 col-xs-6">
-              <!-- small box -->
-              <div class="small-box bg-blue">
-                <div class="inner">
-                  <h3>
-                    230
-                  </h3>
-                  <p>
-                    Sales
-                  </p>
-                </div>
-                <div class="icon">
-                  <i class="ion ion-ios7-cart-outline"></i>
-                </div>
-                <a href="#" class="small-box-footer">
-                  More info <i class="fa fa-arrow-circle-right"></i>
-                </a>
-              </div>
-            </div><!-- ./col -->
-            <div class="col-lg-3 col-xs-6">
-              <!-- small box -->
-              <div class="small-box bg-purple">
-                <div class="inner">
-                  <h3>
-                    80<sup style="font-size: 20px">%</sup>
-                  </h3>
-                  <p>
-                    Conversion Rate
-                  </p>
-                </div>
-                <div class="icon">
-                  <i class="ion ion-ios7-briefcase-outline"></i>
-                </div>
-                <a href="#" class="small-box-footer">
-                  More info <i class="fa fa-arrow-circle-right"></i>
-                </a>
-              </div>
-            </div><!-- ./col -->
-            <div class="col-lg-3 col-xs-6">
-              <!-- small box -->
-              <div class="small-box bg-teal">
-                <div class="inner">
-                  <h3>
-                    14
-                  </h3>
-                  <p>
-                    Notofications
-                  </p>
-                </div>
-                <div class="icon">
-                  <i class="ion ion-ios7-alarm-outline"></i>
-                </div>
-                <a href="#" class="small-box-footer">
-                  More info <i class="fa fa-arrow-circle-right"></i>
-                </a>
-              </div>
-            </div><!-- ./col -->
-            <div class="col-lg-3 col-xs-6">
-              <!-- small box -->
-              <div class="small-box bg-maroon">
-                <div class="inner">
-                  <h3>
-                    160
-                  </h3>
-                  <p>
-                    Products
-                  </p>
-                </div>
-                <div class="icon">
-                  <i class="ion ion-ios7-pricetag-outline"></i>
-                </div>
-                <a href="#" class="small-box-footer">
-                  More info <i class="fa fa-arrow-circle-right"></i>
-                </a>
-              </div>
-            </div><!-- ./col -->
+
+            {{
+              widgets.small_box(
+                bgcolor="bg-blue",
+                header=230,
+                body="Sales",
+                iconclass="ion ion-ios7-cart-outline",
+                footerlink="#"
+              )
+            }}
+
+            {{
+              widgets.small_box(
+                bgcolor="bg-purple",
+                header=80,
+                percentage=True,
+                body="Conversion Rate",
+                iconclass="ion ion-ios7-briefcase-outline",
+                footerlink="#"
+              )
+            }}
+
+            {{
+              widgets.small_box(
+                bgcolor="bg-teal",
+                header=14,
+                body="Notifications",
+                iconclass="ion ion-ios7-alarm-outline",
+                footerlink="#"
+              )
+            }}
+
+            {{
+              widgets.small_box(
+                bgcolor="bg-maroon",
+                header=160,
+                body="Products",
+                iconclass="ion ion-ios7-pricetag-outline",
+                footerlink="#"
+              )
+            }}
+
           </div><!-- /.row -->
 {%- endblock content %}

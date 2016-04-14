@@ -1,10 +1,12 @@
-{% macro small_box(bgcolor="bg-yellow", header="44", body="User Registrations", iconclass="ion ion-person-add", footerlink="#") %}
+{% macro small_box(bgcolor="bg-yellow", header="44", percentage=False, body="User Registrations", iconclass="ion ion-person-add", footerlink="#") %}
 
     <div class="col-lg-3 col-xs-6">
       <!-- small box -->
       <div class="small-box {{bgcolor}}">
         <div class="inner">
-          <h3>{{header}}</h3>
+          <h3>
+            {{header}}{% if percentage %}<sup style="font-size: 20px">%</sup>{% endif %}
+          </h3>
 
           <p>{{body}}</p>
         </div>
