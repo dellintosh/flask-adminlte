@@ -2,8 +2,12 @@
 Flask-AdminLTE
 ==============
 
-.. image:: https://travis-ci.org/mbr/flask-bootstrap.png?branch=master
-   :target: https://travis-ci.org/mbr/flask-bootstrap
+.. image:: https://travis-ci.org/dellintosh/flask-adminlte.png?branch=master
+   :target: https://travis-ci.org/dellintosh/flask-adminlte
+
+.. image:: https://requires.io/github/dellintosh/flask-adminlte/requirements.svg?branch=master
+     :target: https://requires.io/github/dellintosh/flask-adminlte/requirements/?branch=master
+     :alt: Requirements Status
 
 Flask-AdminLTE packages `AdminLTE
 <http://www.almsaeedstudio.com/>`_ into an extension that mostly consists
